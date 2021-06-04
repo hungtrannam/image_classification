@@ -1,5 +1,5 @@
 # Bảng thuật ngữ 
-
+Bảng thuật ngữ Anh-Việt các thuật ngữ trong Học Máy.
 
 
 ## A
