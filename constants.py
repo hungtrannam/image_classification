@@ -39,10 +39,8 @@ with warnings.catch_warnings():
     warnings.filterwarnings(warning_status, category = DeprecationWarning)
 
 #2
-df_link = 'D:\\A_NCKH_hung\\NCKH_Statistics\\Data\\Data_Finance.csv'
-train = 'D:\\A_NCKH_hung\\NCKH_Statistics\\Data\\train\\*.jpg'
-test = 'D:\\A_NCKH_hung\\NCKH_Statistics\\Data\\test\\*.jpg'
-path = 'D:\\A_NCKH_hung\\NCKH_Statistics\\Modules\\Matlab\\Ex3_voihongngua\\*.jpg'
+train = 'D:\\Data\\train\\*.jpg'
+test = 'D:\\Data\\test\\*.jpg'
 
 #3
 plt.rcParams.update({'font.size': 15})	
