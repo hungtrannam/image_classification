@@ -1,3 +1,5 @@
+<img src="logo.png" align="right" alt="" width="300"/>
+
 # Nhận Dạng Hình Ảnh và Một Số Ứng Dụng Trong Y Học
 
 ## Thông tin tác giả
