@@ -1,6 +1,8 @@
-<img src="layout_set_logo.gif" align="right" alt="" width="250"/>
+
 
 # Nhận Dạng Hình Ảnh và Một Số Ứng Dụng Trong Y Học
+
+<img src="layout_set_logo.gif" align="right" alt="" width="250"/>
 
 ## Thông tin tác giả
 
