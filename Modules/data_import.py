@@ -1,20 +1,18 @@
-# =================================================================
+
 ''' Các hàm được định nghĩa trong gói chương trình
 1) Tải dữ liệu từ đường link trong gói constants
 2) Tiền xử lý số liệu trong dataframe
 3) Chuyển dữ liệu theo phương pháp minmax hoặc chuẩn hóa
 4) Chia dữ liệu ban đầu thành hai tập training và testing với tỷ lệ thích hợp
 '''
-# =================================================================
 
 
 from constants import *	# Tải một số chương trình lệnh dùng chung
 
-from sklearn.model_selection import train_test_split	# Chia ngẫu nhiên dữ liệu thành tập training và testing với tỷ lệ thích hợp
+from sklearn.model_selection import train_test_split	# Chia ngẫu nhiên dữ liệu
 from sklearn.experimental import enable_iterative_imputer	# Xử lý số liệu trống (NaN) bằng phương pháp MICE (Multivariate Imputation by Chained Equations)
 from sklearn.impute import IterativeImputer
-from sklearn.preprocessing import MinMaxScaler, StandardScaler, MaxAbsScaler
-	# Chuẩn hóa dữ liệu Minmax và/hoặc chuẩn hóa dữ liệu
+from sklearn.preprocessing import MaxAbsScaler	# Chuẩn hóa dữ liệu Minmax và/hoặc chuẩn hóa dữ liệu
 
 #1 
 def data_load(df_link: str):
@@ -26,13 +24,13 @@ def data_load(df_link: str):
 	# Tiến hành tải dữ liệu từ đường link trong gói 'constants'
 	df = pd.read_csv(df_link, sep = ',', decimal = '.')
 
-	# Nhân tố hóa (factorize) các quan sát là biến định tính (category)
+	# Nhân tố hóa biến định tính (category)
 	for col_name in df.columns:
 		if(df[col_name].dtype == 'object'):
 			df[col_name]= df[col_name].astype('category')
 			df[col_name] = df[col_name].cat.codes
 
-	# Xử lý các quan sát thiếu bằng phương pháp MICE (trả về dataframe)
+	# Xử lý các quan sát thiếu
 	imputer = IterativeImputer(sample_posterior=True).fit(df).transform(df)
 	df = pd.DataFrame(imputer, columns = df.columns)
 	
@@ -41,11 +39,6 @@ def data_load(df_link: str):
 	print("Hoàn thành việc tải dữ liệu.")
 	return df, X, y
 
-#2
-def data_train_test(X, y, test_size):
-	X_train, Y_train, X_test, Y_test = train_test_split(X, y, test_size = test_size, random_state = 1)
-	print("Hoàn thành việc chia dữ liệu với tỷ lệ training {}% - {}%.".format((1-test_size)*100, test_size*100))
-	return X_train, Y_train, X_test, Y_test
 #3
 def MaxAbsScaler_(X):
 	scaler = MaxAbsScaler()
@@ -54,13 +47,9 @@ def MaxAbsScaler_(X):
 	print("Hoàn thành việc chuẩn hóa MaxAbs dữ liệu")
 	return X
 
-
 # Tải dữ liệu thực tế
 df, X, y = data_load(df_link)
-#MaxAbsScaler_(X)
 
-
-#X_train, Y_train, X_test, Y_test = data_train_test(X, y, 0.2)
 
 
 
