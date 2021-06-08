@@ -1,5 +1,3 @@
-from constants import *
-from data_import import *
 from sklearn.preprocessing import MinMaxScaler, MaxAbsScaler
 
 def MinMaxScaler_(X):
