@@ -17,7 +17,7 @@ def fit_SVM_model(X, y):
 
 def class_SVM_report(X, y):
   from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
-  Logit_model = VC(C = 1e8, gamma = 0.0001, kernel = 'rbf', decision_function_shape = 'ovo').fit(X, y)
+  Logit_model = SVC(C = 1e8, gamma = 0.0001, kernel = 'rbf', decision_function_shape = 'ovo').fit(X, y)
   cnf_matrix = confusion_matrix(y, Logit_model.predict(X))
   accuracy = accuracy_score(y, Logit_model.predict(X))
   report = classification_report(y, Logit_model.predict(X), digits = 4)
