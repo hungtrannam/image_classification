@@ -17,7 +17,7 @@ def fit_Logit_model(X, y):
     print('Khớp xong mô hình logistic với dữ liệu')
     return rep, result
 #2
-def report(rep):
+def Logitreport(rep):
     print('='*80)
     print('TÓM TẮT MÔ HÌNH HỒI QUY LOGISTICS')
     print(rep.tables[0].to_string(index = False, header = False))
@@ -28,7 +28,7 @@ def report(rep):
     print('pvalues:\n{}'.format(result.pvalues))
     print('='*80)
    
-def class_report(X, y):
+def class_Logit_report(X, y):
   from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
   Logit_model = LogisticRegression(solver='liblinear', random_state=0).fit(X, y)
   
