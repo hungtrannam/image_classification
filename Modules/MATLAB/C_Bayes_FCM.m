@@ -4,12 +4,7 @@ Train_X = [glcmtraindata(1:200, 1) glcmtraindata(1:200, 2) glcmtraindata(1:200, 
 Train_Y = TrainData(:, end) + 1;
 
 % Standard via Min-Max Scale
-StandardData = [];
-for i = 1:size(Train_X, 2)
-    for j = 1:length(TrainData)
-        StandardData(j, i) = (TrainData(j, i) - min(TrainData(:, i))) / (max(TrainData(:, i)) - min(TrainData(:, i)));
-    end
-end
+StandardData = MinMaxScale(TrainData, 4);
 
 TrainData = [StandardData Train_Y];
 
