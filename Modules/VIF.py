@@ -7,10 +7,14 @@
 
 #1
 def VIF(X):
+    '''
+    Hàm thực hiện tính hệ số VIF
+    # Input: pandas dataframe 
+    # Output: bảng VIF đối với mỗi biến
+    '''
     # Chương trình tính hệ số VIF có trong statsmodels
     from statsmodels.stats.outliers_influence import variance_inflation_factor 
     
-    # Tạo một VIF dataframe trống với cột 'feature' gồm các biến X
     vif_data = pd.DataFrame()
     vif_data["feature"] = X.columns
     
@@ -107,6 +111,11 @@ def correlation_network(df = None,
 
 #4
 def correlation_heatmap(X):
+    '''
+    Hàm thực hiện vẽ biểu đồ heatmap thể hiện tương quan từng biến
+    # Input: pandas dataframe 
+    # Output: heatmap
+    '''
     corr = X.corr()
     plt.subplots(figsize=(14,14))
     sns.heatmap(corr,
