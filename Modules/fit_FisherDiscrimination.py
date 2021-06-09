@@ -1,7 +1,7 @@
+from constants import *     # Tải một số chương trình lệnh dùng chung
+from data_import import *   # Tải dữ liệu
+
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis    # Xây dựng đường thẳng phân biệt LDA
-import pandas as pd
-import numpy as np
-np.random.seed(3401)
 
 #1
 def fit_LDA_model(X, y):
