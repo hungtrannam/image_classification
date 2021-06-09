@@ -4,7 +4,7 @@ def MinMaxScaler_(X):
 	scaler = MinMaxScaler()
 	xmat = scaler.fit_transform(X)
 	X = pd.DataFrame(xmat, columns = X.columns)
-	print("Hoàn thành việc chuẩn hóa MaxAbs dữ liệu")
+	print("Hoàn thành việc chuẩn hóa MinMax dữ liệu")
 	return X
 
 
