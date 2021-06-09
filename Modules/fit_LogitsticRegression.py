@@ -1,6 +1,5 @@
-import statsmodels.api as sm
-import numpy as np
-import pandas as pd
+from constants import *     # Tải một số chương trình lệnh dùng chung
+from data_import import *   # Tải dữ liệu
 from sklearn.linear_model import LogisticRegression
 
 def fit_Logit_model(X, y):
