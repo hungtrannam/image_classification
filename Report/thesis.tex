@@ -1,0 +1,238 @@
+% Mẫu luận văn ĐHCT soạn thảo bằng LaTeX, phiên bản 1.0
+% ====================================================================
+% Tác giả: 				Dương Lữ Điện
+% Website:				www.duongludien.com
+% GitHub repository:	https://github.com/duongludien/thesis-template
+% ====================================================================
+
+\documentclass[a4paper,oneside]{report}			% Viết trên giấy A4 và in một mặt
+
+% Liệt kê các gói chương trình lệnh có trên CRAN
+% ====================================================================
+% Về font chữ, canh lề, size chữ các tiêu đề
+\usepackage[english]{babel}
+\usepackage[utf8]{vietnam}		% Gõ Tiếng Việt trong LaTex
+\usepackage{scrextend}
+\changefontsizes{13pt}			% Chỉnh size chữ	
+\usepackage{titlesec}			% Chỉnh size, font của các tiêu đề
+\usepackage{times}				% Chỉnh font chữ thành Times
+\usepackage{mathptm}			% Chỉnh font các ký hiệu toán thành Times
+\usepackage[top=2cm,inner=3cm,outer=2cm,bottom=2cm,headheight=2cm]{geometry}	% Dùng để tùy chỉnh lề trái phải
+\setlength{\parindent}{1cm}	% Tùy chỉnh thụt đầu dòng mỗi đoạn
+\renewcommand{\baselinestretch}{1.3}	% Lệnh tùy chỉnh dãn cách các dòng
+\usepackage{amsmath,amssymb,yhmath,mathrsfs,fontawesome}	% Dùng để chèn các công thức Toán
+\usepackage{amsfonts}			% Dùng để chèn các công thức Toán
+\usepackage[standard,thmmarks]{ntheorem}	%thref,amsmath,hyperref
+%\usepackage[solcolor]{ex_test} 	% Gói trắc nghiệm (thầy Tuấn, gói này phải tải trên mạng)
+%\usepackage{indentfirst}		% Thụt đầu đòng nhe
+% Về các bảng, hình, màu sắc và liên kết
+\usepackage{fancybox} 
+\usepackage{array} 				% Dùng để kẻ các đường trong bảng
+\usepackage{booktabs}			% Dùng để kẻ các đường trong bảng
+\usepackage{multirow}			% Dùng để chia các hàng trong các bảng
+\usepackage{makecell}			% Dùng để chia các cột trong bảng
+\usepackage{xtab}
+
+\usepackage[bookmarksnumbered, hyperindex, unicode]{hyperref}
+\usepackage{graphicx}			% Dùng để chèn hình ảnh
+\graphicspath{ {images/} }		% Folder chứa hình ảnh
+\usepackage{subfiles}			% Dùng để chia thành các files nhỏ
+\usepackage{fancyhdr}			% Dùng để tạo header và footer
+\usepackage{emptypage}			% Không đánh số trang, header, footer với các trang trắng
+\usepackage{tabularx}			% Dùng để chèn bảng
+\usepackage{pdflscape}			% Một vài trang nằm ngang (landscape) thay vì dọc (portrait) (bảng, biểu đồ)
+%\usepackage{lscape}			% Dùng để viết các trang nằm ngang cục bộ
+\usepackage[square]{natbib}		% Dùng cho tài liệu tham khảo
+\setcitestyle{super}			% Ký hiệu tài liệu tham khảo dạng superscript
+\usepackage{url}				% Dùng cho URL
+\usepackage{longtable}			% Dùng cho các bảng dài, nhiều trang
+\usepackage{tikz}				% Dùng để vẽ hình, vẽ bảng biến thiên (chương trình mạnh)
+\usetikzlibrary{calc}
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+\usepackage{enumerate}			% Dùng để làm nổi bật header của bảng
+\usepackage{float}				% Dùng để thiết đặt thuộc tính H (here) đặt tại chỗ cho ảnh
+% Định dạng cho header của bảng
+\renewcommand\theadfont{\bfseries}
+\usepackage{listings}			% Dùng để viết các mã code trong Matlab và các chương trình khác
+\usepackage{color} 				%red, green, blue, yellow, cyan, magenta, black, white
+\usepackage{pdfpages}			% Chèn các file .pdf vào LaTex
+\usepackage[ruled,lined,commentsnumbered, norelsize]{algorithm2e}	% Dùng để viết các thuật toán
+\usepackage{makeidx}			%Tạo index
+\usepackage{imakeidx}
+\usepackage{qrcode}				% Tạo mã QR dẫn đến nguồn mã chương trình
+\makeindex[title = INDEX,intoc]
+
+
+% ===================Tiêu đề và tác giả===============================
+\title{Nhận dạng ảnh và ứng dụng trong y học}
+\author{Trần Nam Hưng}	
+% ====================================================================
+
+% Header và footer 
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}	% Tùy chỉnh độ dày của thanh ngang header
+\cfoot{\fontsize{11}{11} \selectfont \thepage}
+
+%=================================================================
+%==============CÀI ĐẶT TÀI LIỆU===================================
+%=================================================================
+
+% ==========Lệnh tùy chỉnh kích cỡ chữ các tiêu đề===================
+\titleformat*{\section}{\Large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat{\chapter}[display]
+{\normalfont\LARGE\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\LARGE}
+
+\usepackage[margin=11pt,font=small, labelfont=bf]{caption} % Tùy chỉnh font, size của caption
+
+%===========Lệnh cài đặt màu=========================================
+\definecolor{mygreen}{RGB}{28,172,0}
+\definecolor{mylilas}{RGB}{170,55,241}
+
+%===========Lệnh cài đặt viết mã code Matlab trong Late==============
+\lstset{
+	language=Matlab,%
+	%basicstyle=\color{red},
+	breaklines=true,%
+	morekeywords={matlab2tikz},
+	keywordstyle=\color{blue},%
+	morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+	identifierstyle=\color{black},%
+	stringstyle=\color{mylilas},
+	commentstyle=\color{mygreen},%
+	showstringspaces=false,%without this there will be a symbol in the places where there is a space
+	numbers=left,%
+	numberstyle={\tiny \color{black}},% size of the numbers
+	numbersep=9pt, % this defines how far the numbers are from the text
+	emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+	%emph=[2]{word1,word2}, emphstyle=[2]{style},  
+	basicstyle=\footnotesize %\ttfamily
+}
+
+%===========Lệnh cài đặt môi trường định lý====================
+\theoremstyle{plain} %Sử dụng phong cách plain để đánh số Định lý, chẳng hạn: Định lý 1, Định lý 2,...
+\theoremheaderfont{\normalfont\bfseries} % In ra chữ "Định lý": đậm, thẳng đứng.
+\theorembodyfont{\slshape} % Nội dung của Định lý được viết bằng chữ nghiêng.
+\theoremseparator {.}         % Ngăn cách giữa Định lý và nội dung định lý bởi dấu chấm.
+\renewtheorem{theorem}{\hspace*{0.5cm}Định lý} [chapter] % Lệnh này để trong file kết quả in ra chữ Định lý thay vì theorem nếu ta để mặc định.
+\newcommand{\dly}[1]{\begin{theorem}#1\end{theorem}}
+
+%===========Lệnh cài đặt môi trường định nghĩa====================
+\theoremstyle{plain} %Sử dụng phong cách plain để đánh số Định nghĩa, chẳng hạn: Định nghĩa 1, Định nghĩa 2,...
+\theoremheaderfont{\bfseries} % In ra chữ "Định nghĩa": đậm, thẳng đứng.
+\theorembodyfont{\normalfont} % Nội dung của Định nghĩa được viết bằng chữ thẳng đứng.
+\theoremseparator {.}         % Ngăn cách giữa Định nghĩa và nội dung ví dụ bởi dấu chấm.
+\renewtheorem{definition}{\hspace*{0.5cm}Định nghĩa}[chapter] % Lệnh này để trong file kết quả in ra chữ Định nghĩa thay vì Defini nếu ta để mặc định.
+\newcommand{\dng}[1]{\begin{definition}#1\end{definition}}
+
+%===========Lệnh cài đặt môi trường chứng minh====================
+\theoremstyle{nonumberplain} % Vì ta không cần phải đánh số Chứng minh 1, Chứng minh 2,... nên chọn "nonumberplain".
+\theoremheaderfont{\bfseries\slshape} % In ra chữ "Chứng minh": đậm, nghiêng. 
+\theorembodyfont{\normalfont}
+\theoremsymbol{\ensuremath{_\blacksquare}} %Dấu kết thúc chứng minh là ô vuông đen.
+\renewtheorem{proof}{\hspace*{0.5cm}Chứng minh}
+\newcommand{\chm}[1]{\begin{proof}#1\end{proof}}
+
+%===========Lệnh gõ tắt hệ và, hệ hoặc
+\newcommand{\hoac}[1]{\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{\left\{\begin{aligned}#1\end{aligned}\right.}
+
+%=================================================================
+%==============BẮT ĐẦU TÀI LIỆU===================================
+%=================================================================
+
+\begin{document}
+\pagenumbering{roman}		% Kiểu số trang: i, ii, iii, iv, v,...	
+
+
+%\includepdf[pages={4}]{ThongTin.pdf}
+\subfile{bia-ngoai}		% Gọi file bìa ngoài
+%\includepdf[pages={5}]{ThongTin.pdf}
+%\includepdf[pages={6}]{ThongTin.pdf}
+\subfile{bia-trong1}		% Gọi file bìa trong
+
+\begin{abstract}
+	Image classification in machine learning and statistics is the problem of indentifying to which of a set of categories (sub-populations) a new observation belongs, on the basis of a training set of data containing obversation (or instances) whose category membership is known.
+	
+	One principal thesis in this report 
+
+	\textbf{Keyword:} \textit{Image classification,}
+\end{abstract}
+
+
+\tableofcontents			% Tạo mục lục
+\listoffigures				% Tạo danh sách các hình ảnh
+\listoftables				% Tạo danh sách các bảng
+%\lstlistoflistings			% Tạo danh sách các chương trình máy tính
+\listofalgorithms
+
+
+\chapter*{Danh mục ký hiệu và viết tắt}
+\subfile{chapters/viet-tat}
+\clearpage
+
+\chapter*{LỜI CẢM ƠN}\addcontentsline{toc}{chapter}{LỜI CẢM ƠN}
+\subfile{chapters/loi-cam-on}
+
+
+%\-ncludepdf[pages={1}]{ThongTin.pdf}
+%\-cludepdf[pages={2}]{ThongTin.pdf}
+%\includepdf[pages={3}]{ThongTin.pdf}
+
+\chapter*{PHẦN MỞ ĐẦU}\addcontentsline{toc}{chapter}{PHẦN MỞ ĐẦU}
+\subfile{chapters/mo-dau}
+
+	
+\chapter{KIẾN THỨC CHUẨN BỊ}
+\pagenumbering{arabic}			% Kiểu số trang: 1, 2, 3,...
+\setcounter{page}{1}			% Cài đặt lại số trang
+\subfile{chapters/chapter01}	% Gọi file chương 1, tương tự gọi các chương khác
+
+
+\chapter[MỘT SỐ PHƯƠNG PHÁP PHÂN LOẠI CHO DỮ LIỆU RỜI RẠC]{MỘT SỐ PHƯƠNG PHÁP PHÂN LOẠI\\ CHO DỮ LIỆU RỜI RẠC}
+\subfile{chapters/chapter02}	% Gọi file chương 2,
+
+\chapter[PHƯƠNG PHÁP PHÂN LOẠI CHO DỮ LIỆU HÌNH ẢNH]{PHƯƠNG PHÁP PHÂN LOẠI \\CHO DỮ LIỆU HÌNH ẢNH}
+\subfile{chapters/chapter03}	% Gọi file chương 3,
+
+\chapter{NHẬN DẠNG ẢNH ỨNG DỤNG TRONG Y HỌC}
+\subfile{chapters/chapter04}	% Gọi file chương 4,
+
+\chapter{KẾT LUẬN VÀ ĐỊNH HƯỚNG NGHIÊN CỨU}
+
+
+\chapter{PHỤ LỤC}\label{phuluc}
+\subfile{chapters/phu_luc}
+
+
+
+\begin{thebibliography}{10}\addcontentsline{toc}{chapter}{TÀI LIỆU THAM KHẢO}
+	\bibliographystyle{plain}
+	\section*{Tài liệu Tiếng Việt}
+
+\bibitem{NVT} Nguyễn Văn Tuấn (2020). Mô hình hồi quy và khám phá khoa học. NXB Tổng hợp TP. HCM, ISBN: 978-604-58-5625-3, năm 2020.
+\bibitem{3} Nghiêm Quan Thường (2016). \textit{Phân loại bằng phương pháp Bayes và các vấn đề liên quan}. Luận văn thạc sĩ. Trường Đại học Cần Thơ.
+\bibitem{10} Võ Văn Tài, Phạm  Gia  Thụ, và Tô Anh Dũng, \textit{Sai  số  Bayes  và  khoảng cách  giữa  hai hàm  mật độ xác suất trong phân loại hai tổng thể}, Tạp chí phát  triển khoa  học công nghệ, Đại học Quốc gia TPHCM, 11(6): 23 – 37, 2008. 
+
+	\section*{Tài liệu ngoại văn}	
+\bibitem{NVTh} Che-Ngoc, H., Nguyen-Trang, T., Nguyen-Bao, T. et al. A new approach for face detection using the maximum function of probability density functions. Ann Oper Res (2020). https://doi.org/10.1007/s10479-020-03823-1
+\bibitem{1} Vo-Van, Tai \& Che Ngoc, Ha \& Nguyen-Trang, Thao. (2017). Textural Features Selection for Image Classification by Bayesian Method. 10.1109/FSKD.2017.8393365.
+\bibitem{2} Pham-Gia, T., Turkkan, N. \& Bekker, A. Bounds for the Bayes Error in Classification: A Bayesian Approach Using Discriminant Analysis. Stat. Meth. \& Appl. 16, 7–26 (2007). https://doi.org/10.1007/s10260-006-0012-x
+\bibitem{43} Nguyen-Trang, Thao \& Vo-Van, Tai. (2016). A new approach for determining the prior probabilities in the classification problem by Bayesian method. Advances in Data Analysis and Classification. 11. 10.1007/s11634-016-0253-y. 
+\bibitem{11} Vovan, T., Tranphuoc, L. \& Chengoc, H. Classifying Two Populations by Bayesian Method and Applications. Commun. Math. Stat. 7, 141–161 (2019). https://doi.org/10.1007/s40304-018-0139-8
+\bibitem{32} Vovan, T.. “L1-distance and classification problem by Bayesian method.” Journal of Applied Statistics 44 (2017): 385 - 401.
+\bibitem{52} Nguyen-Trang, T., Vo-Van, T. A new approach for determining the prior probabilities in the classification problem by Bayesian method. Adv Data Anal Classif 11, 629–643 (2017). https://doi.org/10.1007/s11634-016-0253-y
+\bibitem{Anderson} Anderson J.A. (1982). Logistic discrimination, in P.R. Krishnaiah and L.N. Kanal (Eds.), Classification, Pattern Recognition and Reduction of Dimensionality, Vol. 2 of Handbook of Statistics, 169–191, North Holland, Amsterdam.
+\end{thebibliography}
+
+%\includepdf{MC.pdf}
+%\includepdf[pages=-]{BaiBao.pdf}
+\printindex
+\end{document}
+
+
+%=================================================================
+%==============KẾT THÚC TÀI LIỆU===================================
+%=================================================================
