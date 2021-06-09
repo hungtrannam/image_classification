@@ -88,7 +88,7 @@ for g = 1:length(TestData)
             for i = 1:szU(1,1)
                 Sum = 0;
                 for k = 1:szU(1,1)
-                    Sum = Sum + (d2(i, j)/d2(k, j))^(1/1);
+                    Sum = Sum + (d2(i, j)/d2(k, j));
                 end
                 U_new(i, j) = 1/Sum;
             end
@@ -151,7 +151,7 @@ for g = 1:length(TestData)
                 for i = 1:szU(1,1)
                     Sum = 0;
                     for k = 1:szU(1,1)
-                        Sum = Sum + (d2(i, j)/d2(k, j))^(1/1);
+                        Sum = Sum + (d2(i, j)/d2(k, j));
                     end
                     U_new(i,j) = 1/Sum;
                 end
