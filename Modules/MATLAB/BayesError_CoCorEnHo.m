@@ -1,33 +1,33 @@
-% import 'glcm_train_data.csv' via Import Data
-TrainData = [glcmtraindata(1:200,1) glcmtraindata(1:200,2) glcmtraindata(1:200,3) glcmtraindata(1:200,4) glcmtraindata(1:200,5)];
-Train_Y = TrainData(:,end) + 1; 
+load('glcm_data.csv')
 
-% Standard via Min-Max Scale
-StandardData = [];
-for i = 1:size(TrainData,2)
-    for j = 1:length(TrainData)
-        StandardData(j,i) = (TrainData(j,i) - min(TrainData(:,i))) / (max(TrainData(:,i)) - min(TrainData(:,i)));
-    end
-end
+%Khai bao du lieu 
+Train_X = [glcm_data(:, 1) glcm_data(:, 2) glcm_data(:, 3) glcm_data(:, 4)];
+Train_Y = glcm_data(:, end) + 1;
 
-TrainData=[StandardData Train_Y];
+tic
+% Standard data
+StandardData1 = MinAbsScale(Train_X);
+StandardData2 = MinMaxScale(StandardData1, 4);
 
-% Create testdata
+TrainData = [StandardData2 Train_Y];
+
 Test1 = 0:.2:1;
 Test2 = 0:.2:1;
 Test3 = 0:.2:1;
-Tets4 = 0:.2:1;
+Test4 = 0:.2:1;
 
 TestData = [];
+
 for i = 1:length(Test1)
     for j = 1:length(Test2)
         for k = 1:length(Test3)
-            for h = 1:length(Tets4)
-                TestData = [TestData; Test1(1,i) Test2(1,j) Test3(1,k) Tets4(1,h)];
+            for h = 1:length(Test4)
+                TestData = [TestData; Test1(1, i) Test2(1, j) Test3(1, k) Test4(1, h)]; 
             end
         end
     end
 end
+TestData;
 
 
 X1_1 = [];
@@ -47,7 +47,7 @@ for i = 1:length(TrainData)
         X3_1 = [X3_1; TrainData(i,3)];
         X4_1 = [X4_1; TrainData(i,4)];
     end
-    if TrainData(i,end)==2
+    if TrainData(i,end)== 2
         X1_2 = [X1_2; TrainData(i,1)];
         X2_2 = [X2_2; TrainData(i,2)];
         X3_2 = [X3_2; TrainData(i,3)];
@@ -70,4 +70,6 @@ f4_2 = ksdensity(X4_2,TestData(:,4));
 f2 = (f1_2).*(f2_2).*(f3_2).*(f4_2);
 
 % Calculate Bayes Error
-[Bayeserror, p1, p2] = BayesErrorMethod('BayesC', TrainData, TestData, f1, f2)
+[acc, p1, p2] = accuracy('BayesC', TrainData, TestData, f1, f2)
+
+toc
