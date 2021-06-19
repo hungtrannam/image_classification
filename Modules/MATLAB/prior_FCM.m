@@ -1,13 +1,4 @@
-%Khai bao du lieu 
-TrainData = [glcmtraindata(1:200, 1) glcmtraindata(1:200, 2) glcmtraindata(1:200, 3) glcmtraindata(1:200, 4) glcmtraindata(1:200, 5)];
-Train_X = [glcmtraindata(1:200, 1) glcmtraindata(1:200, 2) glcmtraindata(1:200, 3) glcmtraindata(1:200, 4)];
-Train_Y = TrainData(:, end) + 1;
-
-% Standard via Min-Max Scale
-StandardData = MinMaxScale(TrainData, 4);
-
-TrainData = [StandardData Train_Y];
-
+function [prior_C, p1,p2] = prior_FCM(TrainData)
 Test1 = 0:.2:1;
 Test2 = 0:.2:1;
 Test3 = 0:.2:1;
@@ -182,8 +173,6 @@ prior;
 % Result
 p1 = prior(1, :);
 p2 = prior(2, :);
-
-prior_FCM = U(:, end)
-
-save('prior_FCM.mat','p1','p2', 'prior_FCM')
+prior_C = U(:, end);
+end
 
