@@ -1,9 +1,3 @@
-% I = imread('image0001.png');
-% L= imresize(I,1);
-% R=L(:,:,1)
-% G=L(:,:,2)
-% B=L(:,:,3)
-% Ms=R.*G.*B;
 function fig = imColorSep(A)
 % IMCOLORSEP    Displays the RGB decomposition of a full-color image
 %
@@ -29,14 +23,14 @@ function fig = imColorSep(A)
     fig = figure;
     
     % Display full color image:
-    subplot(2,2,1);
+    subplot(2, 2, 1);
     imshow(A);
     title('Full Color');
     % Cell array of color names:
     ColorList = { 'Red' 'Green' 'Blue' };
     
     % Gray-scale column vector:         %   range [ 0 .. 1 ]
-    gr = 0:1/(N-1):1;                   %   increment 1/(N-1)
+    gr = 0:1 / (N-1):1;                   %   increment 1/(N-1)
     
         
     % Display each of the three color components:
@@ -45,11 +39,11 @@ function fig = imColorSep(A)
         
         % color map:
         cMap = zeros(N,3);
-        cMap(:,k) = gr;   
+        cMap(:, k) = gr;   
         
         % Display monochromatic image:
-        subplot(2,2,k+1);
-        imshow(ind2rgb(A(:,:,k),cMap));
+        subplot(2, 2, k+1);
+        imshow(ind2rgb(A(:, :, k), cMap));
         title(ColorList{k});
         
     end
