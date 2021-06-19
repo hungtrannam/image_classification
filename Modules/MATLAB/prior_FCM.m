@@ -22,15 +22,15 @@ TestData;
 prior = [];
 for g = 1:length(TestData)
     Z = TrainData';
-    Z = Z(1:end-1,:);
-    pt = TestData(g,:);
+    Z = Z(1:end - 1, :);
+    pt = TestData(g, :);
     pt = pt';
     Z = [Z pt];
     
     U = [];
     for i = 1:length(TrainData)
         for j = 1:2
-            if TrainData(i,end) == j
+            if TrainData(i, end) == j
                 U(j, i) = 1;
             end
         end
@@ -40,10 +40,10 @@ for g = 1:length(TestData)
     
     szZ = size(Z);
     szU = size(U);
-    for k = 1:szZ(1,1)
-        for i = 1:szU(1,1)
-            numerator=0; 
-            denomirator=0;
+    for k = 1:szZ(1, 1)
+        for i = 1:szU(1, 1)
+            numerator = 0; 
+            denomirator = 0;
             for j = 1:length(Z)
                 numerator = numerator + (U(i, j).^2) * Z(k, j);
                 denomirator = denomirator + U(i, j).^2;
@@ -54,7 +54,7 @@ for g = 1:length(TestData)
     v;
     
     for j = 1:length(Z)
-        for i = 1:szU(1,1)
+        for i = 1:szU(1, 1)
             d2(i, j) = 0;
             for k = 1:szZ(1, 1)
                 d2(i, j) = d2(i, j) + (v(k, i) - Z(k, j)).^2;
@@ -65,7 +65,7 @@ for g = 1:length(TestData)
 
     for j = 1:length(Z)
         m = 0;
-        for k = 1:szU(1,1)
+        for k = 1:szU(1, 1)
             if d2(k, j) == 0
                 m = m + 1;
             end
@@ -73,7 +73,7 @@ for g = 1:length(TestData)
         if m == 0            
             for i = 1:szU(1,1)
                 Sum = 0;
-                for k = 1:szU(1,1)
+                for k = 1:szU(1, 1)
                     Sum = Sum + (d2(i, j)/d2(k, j));
                 end
                 U_new(i, j) = 1/Sum;
@@ -91,7 +91,7 @@ for g = 1:length(TestData)
     U_new;
 
     L1 = 0;
-    for i = 1:szU(1,1)
+    for i = 1:szU(1, 1)
         for j = 1:length(Z)
             dist(i, j) = abs(U_new(i, j) - U(i, j));
             if dist(i, j) > L1
@@ -103,8 +103,8 @@ for g = 1:length(TestData)
     
     while L1 > 0.0001
         U = U_new;
-        for k = 1:szZ(1,1)
-            for i = 1:szU(1,1)
+        for k = 1:szZ(1, 1)
+            for i = 1:szU(1, 1)
                 numerator = 0;
                 denomirator = 0;
                 for j = 1:length(Z)
@@ -117,9 +117,9 @@ for g = 1:length(TestData)
         v;
         
         for j = 1:length(Z)
-            for i = 1:szU(1,1)
+            for i = 1:szU(1, 1)
                 d2(i, j) = 0;
-                for k = 1:szZ(1,1)
+                for k = 1:szZ(1, 1)
                     d2(i, j) = d2(i, j) + (v(k, i) - Z(k, j)).^2;
                 end
             end
@@ -134,9 +134,9 @@ for g = 1:length(TestData)
                 end
             end
             if m == 0
-                for i = 1:szU(1,1)
+                for i = 1:szU(1, 1)
                     Sum = 0;
-                    for k = 1:szU(1,1)
+                    for k = 1:szU(1, 1)
                         Sum = Sum + (d2(i, j)/d2(k, j));
                     end
                     U_new(i,j) = 1/Sum;
@@ -154,7 +154,7 @@ for g = 1:length(TestData)
         U_new;
         
         L1 = 0;
-        for i = 1:szU(1,1)
+        for i = 1:szU(1, 1)
             for j = 1:length(Z)
                 dist(i, j) = abs(U_new(i, j) - U(i, j));
                 if dist(i, j) > L1
