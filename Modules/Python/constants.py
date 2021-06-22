@@ -10,16 +10,13 @@ import os															# (pip install os-sys)
 
 import itertools	
 
-
 import pandas as pd										# Công cụ quản lý dữ liệu	# (pip install pandas)
 import numpy as np										# Công cụ đại số tuyến tính	# (pip install numpy)
 np.random.seed(3401)										# Tái lập kết quả
 
-
 import arviz as az										# Đồ họa có posterior		# (pip install arviz)
 import matplotlib.pyplot as plt													# (pip install matplotlib)
 import seaborn as sns														# (pip install seaborn)
-
 
 import statsmodels.api as sm													# (pip install statsmodels)
 #import tensorflow as tf													# (pip install tensorflow)
@@ -28,9 +25,7 @@ import probflow as pf														# (pip install probflow)
 
 import scipy.stats as ss													# (pip install scipy)
 
-
 import cv2											# Trích suất, xử lý ảnh		# (pip install cv2)
-
 
 warning_status = "ignore"
 import warnings
