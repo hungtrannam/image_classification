@@ -22,9 +22,9 @@ def VIF(X):
     vif_data["VIF"] = [variance_inflation_factor(X.values, i) for i in range(len(X.columns))]
     
     print('Nhân tử phóng xạ phương sai (VIF) đối với mỗi biến X')
-    print('='*40)
+    print('_'*40)
     print(vif_data)
-    print('='*40)
+    print('_'*40)
 
 
 #2
@@ -86,23 +86,25 @@ def correlation_network(df = None,
     C = nx.from_pandas_adjacency(corr)
     
     # 5) Trích xuất weights (giá trị r của edges) và degrees (số liên kết đi đến 1 node)
-    weights = np.array([d['weight'] for s,t,d in C.edges(data=True)])
+    weights = np.array([d['weight'] for s, t, d in C.edges(data = True)])
     degrees = np.array([val for (node, val) in C.degree()])
     
     # 6) Vẽ graph
     pos = nx.spring_layout(C)
     
-    edges = nx.draw_networkx_edges(C,pos,
-                                   edge_color=weights,
-                                   width=width,
-                                   edge_cmap=plt.cm.coolwarm)
+    edges = nx.draw_networkx_edges(C,
+                                   pos,
+                                   edge_color = weights,
+                                   width = width,
+                                   edge_cmap = plt.cm.coolwarm)
     
-    nodes = nx.draw_networkx(C, pos,
-                             width=width,
-                             edge_color=weights,
-                             node_color=degrees,
+    nodes = nx.draw_networkx(C, 
+                             pos,
+                             width = width,
+                             edge_color = weights,
+                             node_color = degrees,
                              cmap = plt.cm.Reds,
-                             edge_cmap=plt.cm.coolwarm,
+                             edge_cmap = plt.cm.coolwarm,
                              node_size = 12*(degrees+5),
                              font_size = font_size,
                              )
