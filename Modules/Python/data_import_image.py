@@ -7,6 +7,7 @@
 
 
 from constants import *	# Tải một số chương trình lệnh dùng chung
+import skimage.io
 
 
 def image1_load(path: str):
@@ -15,7 +16,7 @@ def image1_load(path: str):
     :output: list các điểm ảnh chứa trong các narray
     '''
     import glob     # (pip install glob2)
-    images = [cv2.imread(file, 0) for file in glob.glob(path)
+    images = [skimage.io.imread(file, as_gray=True) for file in glob.glob(path)]
     print("Hoàn thành việc tải dữ liệu hình ảnh một chiều")
     return images
 
@@ -25,7 +26,7 @@ def imageRGB_load(path: str):
     :output: list các điểm ảnh chứa trong các narray
     '''
     import glob     
-    images = [cv2.imread(file, 1) for file in glob.glob(path)]
+    images = [skimage.io.imread(file) for file in glob.glob(path)]
     print("Hoàn thành việc tải dữ liệu hình ảnh ba chiều")
     return images
 
