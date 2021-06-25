@@ -6,11 +6,9 @@
 
 ## Thông tin tác giả
 
-Võ Văn Tài:      Giáo viên hướng dẫn
+**Trần Nam Hưng**^1:   chủ nhiệm đề tài
 
-Trần Nam Hưng:   chủ nhiệm đề tài
-
-Lý Ngọc Thanh:   thành viên
+**Lý Ngọc Thanh**:   thành viên
 
 Khoa Khoa học Tự nhiên, Đại học Cần Thơ
 
