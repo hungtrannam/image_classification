@@ -6,7 +6,7 @@
 
 ## Thông tin tác giả
 
-**Trần Nam Hưng**^1:   chủ nhiệm đề tài
+**Trần Nam Hưng**:   chủ nhiệm đề tài
 
 **Lý Ngọc Thanh**:   thành viên
 
