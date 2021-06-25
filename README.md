@@ -6,7 +6,8 @@
 
 ## Thông tin tác giả
 
-Trần Nam Hưng 
+Trần Nam Hưng:   chủ nhiệm đề tài
+Lý Ngọc Thanh:   thành viên
 
 Khoa Khoa học Tự nhiên, Đại học Cần Thơ
 
