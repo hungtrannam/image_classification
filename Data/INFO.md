@@ -11,7 +11,9 @@
 ------------------------------------------------------------------------------------------------------------------
 
 * Bài báo cáo sử dụng phương pháp trích xuất hình ảnh bằng GLCM với độ dài bằng 1 và góc 0 độ, trích xuất thành bốn biến định lượng
-* **Contrast** biến định lượng 
+- **Contrast** biến định lượng thể hiện mức độ tương phản của hình ảnh
+- **Homogeneity** biến định lượng 
+- 
 
 
 * Sử dụng phương pháp trích xuất hình ảnh bằng dữ liệu khoảng, chúng tôi đã trích xuất hình ảnh thành khoảng
