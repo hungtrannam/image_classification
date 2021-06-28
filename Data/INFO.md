@@ -9,3 +9,9 @@
 |   Y = 1 (Bệnh lý)      | 90                            | 73                          | 18                      |
 | Tổng                   | 250                           | 200                         | 50                      |
 ------------------------------------------------------------------------------------------------------------------
+
+* Bài báo cáo sử dụng phương pháp trích xuất hình ảnh bằng GLCM với độ dài bằng 1 và góc 0 độ, trích xuất thành bốn biến định lượng
+* **Contrast** biến định lượng 
+
+
+* Sử dụng phương pháp trích xuất hình ảnh bằng dữ liệu khoảng, chúng tôi đã trích xuất hình ảnh thành khoảng
