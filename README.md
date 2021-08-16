@@ -4,7 +4,7 @@
 
 <img src="layout_set_logo.gif" align="left" alt="" width="250"/>
 
-**Title: **
+**Title:**
 
 ## Thông tin tác giả
 
